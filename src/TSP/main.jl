@@ -72,3 +72,11 @@ function test()
 	println(" * Saving solution to file")
 	save_sol(string(SOLUTION_PATH,name),"ASVC_$(K).txt",length(inst.Data[1,:]),nu,asvc_status,string(asvc_sol),asvc_t,nb_sv,asvc_gap)
 end
+
+function make_plt()
+	set = [1,2,4,5,7,8]
+	K = [90,126,90,126,90,126]
+	for i in set
+
+	end
+end

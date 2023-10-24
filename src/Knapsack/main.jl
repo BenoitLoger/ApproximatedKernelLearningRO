@@ -18,6 +18,9 @@ INSTANCE_PATH = "../../Instances/Knapsack/"
 CLUSTER_PATH = "../../Clusters/Knapsack/"
 SOLUTION_PATH = "../../Solutions/Knapsack/"
 
+"""
+	Illustrating example generating SVC cluster, approximations (phase 1 and 2) and solving the corresponding Knapsack model
+"""
 function test()
 	# Load the instance
 	name="test/"

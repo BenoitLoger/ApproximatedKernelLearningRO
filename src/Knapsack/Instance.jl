@@ -11,7 +11,7 @@ mutable struct Instance
 	c::Array{Float64,1} # Cost vector
 	dist::Dist # Dist(ribution)
 	w::Array{Float64,2} # Set of historical weights
-	b::Int # Maximum value of
+	b::Int # Maximum weight of the Knapsack
 
 	write::Function
 

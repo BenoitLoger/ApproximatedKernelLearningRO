@@ -132,16 +132,6 @@ function save_sol(solution_path,solution_file,N,nu,status,sol,t,nb_sv,gap)
 	close(f)
 end
 
-function save_complete_sol(solution_path,solution_file,N,nu,status,sol,y,t,gap,obj)
-	sep = ";"
-	line = "\n"
-	# Open the file
-	println("ui")
-	f = open(string(solution_path,solution_file),"a")
-		print(f,N,sep,nu,sep,status,sep,sol,sep,y,sep,t,sep,gap,sep,obj,line)
-	close(f)
-end
-
 function load_sol(solution_path,solution_file)
 	df = DataFrame(N=Int[],nu=Float64[],status=String[],solution=String[],time=Float64[],sv=Int[],gap=Float64[])
 	f = open(string(solution_path,solution_file),"r")
@@ -151,21 +141,6 @@ function load_sol(solution_path,solution_file)
 			line = Base.split(lines[i],";")
 			# println(line)
 			res = [parse(Int,line[1]),parse(Float64,line[2]),line[3],line[4],parse(Float64,line[5]),parse(Int,line[6]),parse(Float64,line[7])]
-			push!(df,res)
-		end
-	close(f)
-	return(df)
-end
-
-function load_complete_sol(solution_path,solution_file)
-	df = DataFrame(N=Int[],nu=Float64[],status=String[],solution=String[],y=String[],time=Float64[],gap=Float64[],obj=Float64[])
-	f = open(string(solution_path,solution_file),"r")
-		lines = readlines(f)
-		for i in 1:length(lines)
-			# println(lines)
-			line = Base.split(lines[i],";")
-			# println(line)
-			res = [parse(Int,line[1]),parse(Float64,line[2]),line[3],line[4],line[5],parse(Float64,line[6]),parse(Float64,line[7]),parse(Float64,line[8])]
 			push!(df,res)
 		end
 	close(f)
