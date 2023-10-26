@@ -60,7 +60,7 @@ function Knapsack()
 	println(" * Saving solution to file")
 	save_sol(string(SOLUTION_PATH,name),"SVC_$(i).txt",length(inst.w[1,:]),nu,svc_status,string(svc_sol),svc_t,nb_sv,svc_gap)
 
-	# Building and solve Knapsack model for the initial uncertainty set
+	# Building and solve Knapsack model for the approximated uncertainty set
 	asvc_model, nb_sv = SVC_based(inst,app_phase_2,variable_type="Binary",time_limit=36000,max_thread=1)
 	println(" * Solving ")
 	asvc_sol, asvc_status, asvc_t, asvc_gap = solve_model(asvc_model,silent=false)
